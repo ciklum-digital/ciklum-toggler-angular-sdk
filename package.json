@@ -1,5 +1,5 @@
 {
-  "name": "ciklum-toggler",
+  "name": "ciklum-toggler-angular-sdk",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,12 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "ci:lint": "yarn lint",
+    "ci:test": "yarn test | npx coveralls",
+    "ci:sonar": "npx sonar-scanner",
+    "ci:build": "yarn build",
+    "ci:publish": "npx lerna publish"
   },
   "private": true,
   "dependencies": {
@@ -24,23 +29,29 @@
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
+    "@angular-builders/jest": "^9.0.0",
+    "@angular-devkit/build-angular": "~0.900.7",
+    "@angular-devkit/build-ng-packagr": "~0.900.7",
     "@angular/cli": "~9.0.7",
     "@angular/compiler-cli": "~9.0.7",
     "@angular/language-service": "~9.0.7",
+    "@types/jest": "^25.1.4",
     "@types/node": "^12.11.1",
-    "@types/jasmine": "~3.5.0",
-    "@types/jasminewd2": "~2.0.3",
     "codelyzer": "^5.1.2",
-    "jasmine-core": "~3.5.0",
-    "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~4.3.0",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~2.1.0",
-    "karma-jasmine": "~2.0.1",
-    "karma-jasmine-html-reporter": "^1.4.2",
-    "protractor": "~5.4.3",
+    "jest": "^25.1.0",
+    "jest-junit": "^10.0.0",
+    "jest-preset-angular": "^8.1.2",
+    "ng-packagr": "^9.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~5.18.0",
     "typescript": "~3.7.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/ciklum-digital/ciklum-toggler-angular-sdk/issues"
   }
 }
