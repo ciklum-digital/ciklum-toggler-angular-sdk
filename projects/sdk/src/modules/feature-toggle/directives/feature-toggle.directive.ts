@@ -15,7 +15,7 @@ import { FeatureToggleService } from '../services/feature-toggle.service';
 export class FeatureToggleDirective implements OnInit {
 
   @Input('featureToggle') public featureName: string;
-  constructor (
+  constructor(
     private featureToggleService: FeatureToggleService,
     private templateRef: TemplateRef<any>,
     private viewContainer: ViewContainerRef,
