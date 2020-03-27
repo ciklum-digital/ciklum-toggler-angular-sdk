@@ -29,11 +29,14 @@ export class FeatureToggleWhenDisabledDirective implements OnInit {
   }
 
   private shouldRender() {
-    if (this.featureToggleService.isEnabled(this.featureName)) {
-      this.viewContainer.clear();
-    } else {
-      this.viewContainer.createEmbeddedView(this.templateRef);
-    }
-    this.changeDetection.detectChanges();
+    this.featureToggleService.isEnabled(this.featureName)
+      .subscribe((isEnabled) => {
+        if (!isEnabled) {
+          this.viewContainer.createEmbeddedView(this.templateRef);
+        } else {
+          this.viewContainer.clear();
+        }
+        this.changeDetection.detectChanges();
+      });
   }
 }

@@ -6,6 +6,8 @@ import { FeatureToggleDirective } from './directives/feature-toggle.directive';
 import { FeatureToggleWhenDisabledDirective } from './directives/feature-toggle-when-disabled.directive';
 import { ConfigProvider } from './models/config-provider.model';
 import { FeatureToggleService } from './services/feature-toggle.service';
+import { CacheService } from './services/cache.service';
+import { FeatureHttpService } from './services/feature-http.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,11 @@ import { FeatureToggleService } from './services/feature-toggle.service';
   imports: [
     CommonModule,
     FormsModule,
-  ]
+  ],
+  providers: [
+    CacheService,
+    FeatureHttpService,
+  ],
 })
 export class FeatureToggleModule {
   static forRoot(configProvider: ConfigProvider): ModuleWithProviders {

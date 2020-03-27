@@ -11,13 +11,16 @@ import { FeatureToggleConfig } from '../models/feature-toggle-config.model';
 })
 export class FeatureHttpService {
   private readonly toggleUrl: string;
+  private readonly token: string;
   constructor(private httpClient: HttpClient,
               @Inject(FEATURE_TOGGLE_CONFIG_TOKEN) featureToggleConfig: FeatureToggleConfig,
               ) {
     this.toggleUrl = featureToggleConfig.toggleUrl;
+    this.token = featureToggleConfig.envKey;
   }
 
-  public getConfig(): Observable<FeatureToggleModel> {
-    return this.httpClient.get<FeatureToggleModel>(this.toggleUrl);
+  public getConfig(): Observable<any> {
+    const url = `${this.toggleUrl}?token=${this.token}`;
+    return this.httpClient.get<FeatureToggleModel>(url);
   }
 }

@@ -13,7 +13,7 @@ export class FeatureToggleService {
   ) {
   }
 
-  public isEnabled(featureName: string): boolean {
+  public isEnabled(featureName: string): Observable<boolean> {
     return this.cacheService.getFeature(featureName);
   }
 }

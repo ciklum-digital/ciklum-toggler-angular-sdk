@@ -5,8 +5,10 @@
     "ng": "ng",
     "commit": "npx git-cz",
     "start": "ng serve",
+    "start:sandbox": "ng serve sandbox",
     "build": "ng build --prod",
     "test": "ng test",
+    "test:sandbox": "ng test sandbox",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "ci:lint": "yarn lint",
@@ -54,5 +56,6 @@
   },
   "bugs": {
     "url": "https://github.com/ciklum-digital/ciklum-toggler-angular-sdk/issues"
-  }
+  },
+  "license": "Apache-2.0"
 }

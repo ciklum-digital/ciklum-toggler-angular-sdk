@@ -15,7 +15,7 @@ import { FeatureToggleService } from '../services/feature-toggle.service';
 export class FeatureToggleDirective implements OnInit {
 
   @Input('featureToggle') public featureName: string;
-  constructor(
+  constructor (
     private featureToggleService: FeatureToggleService,
     private templateRef: TemplateRef<any>,
     private viewContainer: ViewContainerRef,
@@ -30,12 +30,15 @@ export class FeatureToggleDirective implements OnInit {
   }
 
   private shouldRender() {
-    if (this.featureToggleService.isEnabled(this.featureName)) {
-      this.viewContainer.createEmbeddedView(this.templateRef);
-    } else {
-      this.viewContainer.clear();
-    }
-    this.changeDetection.detectChanges();
+    this.featureToggleService.isEnabled(this.featureName)
+      .subscribe((isEnabled) => {
+        if (isEnabled) {
+          this.viewContainer.createEmbeddedView(this.templateRef);
+        } else {
+          this.viewContainer.clear();
+        }
+        this.changeDetection.detectChanges();
+      });
   }
 
 }
