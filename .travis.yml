@@ -23,9 +23,9 @@ script:
 before_deploy:
   - git checkout ${TRAVIS_BRANCH}
 
-deploy:
-  provider: script
-  script: yarn ci:publish
-  skip_cleanup: true
-  on:
-    branch: master
+#deploy:
+#  provider: script
+#  script: yarn ci:publish
+#  skip_cleanup: true
+#  on:
+#    branch: master
