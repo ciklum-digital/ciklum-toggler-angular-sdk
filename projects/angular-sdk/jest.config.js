@@ -13,7 +13,7 @@ module.exports = {
     '^.+\\.(ts|js|html)$': 'ts-jest',
   },
   testPathIgnorePatterns : [
-    "<rootDir>/projects/angular-sdk/src/test.ts"
+    "<rootDir>/projects/angular-sdk/src/test-setup.ts"
   ],
   moduleFileExtensions: ['ts', 'html', 'js', 'json'],
   moduleNameMapper: {
@@ -28,5 +28,5 @@ module.exports = {
     'jest-preset-angular/build/HTMLCommentSerializer.js',
   ],
   "preset": "jest-preset-angular",
-  "setupFilesAfterEnv": ["<rootDir>/projects/angular-sdk/src/test.ts"],
+  "setupFilesAfterEnv": ["<rootDir>/projects/angular-sdk/src/test-setup.ts"],
 }
