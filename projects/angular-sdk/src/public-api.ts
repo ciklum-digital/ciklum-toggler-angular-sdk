@@ -1,5 +1,5 @@
 /*
- * Public API Surface of sdk
+ * Public API Surface of angular-sdk
  */
 
 export { FeatureToggleModule } from './modules/feature-toggle/feature-toggle.module';

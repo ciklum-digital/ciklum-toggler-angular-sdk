@@ -3,21 +3,21 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sdk": {
+    "angular-sdk": {
       "projectType": "library",
-      "root": "projects/sdk",
-      "sourceRoot": "projects/sdk/src",
+      "root": "projects/angular-sdk",
+      "sourceRoot": "projects/angular-sdk/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/sdk/tsconfig.lib.json",
-            "project": "projects/sdk/ng-package.json"
+            "tsConfig": "projects/angular-sdk/tsconfig.lib.json",
+            "project": "projects/angular-sdk/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/sdk/tsconfig.lib.prod.json"
+              "tsConfig": "projects/angular-sdk/tsconfig.lib.prod.json"
             }
           }
         },
@@ -32,8 +32,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/sdk/tsconfig.lib.json",
-              "projects/sdk/tsconfig.spec.json"
+              "projects/angular-sdk/tsconfig.lib.json",
+              "projects/angular-sdk/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -153,5 +153,5 @@
         }
       }
     }},
-  "defaultProject": "sdk"
+  "defaultProject": "angular-sdk"
 }

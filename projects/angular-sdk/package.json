@@ -1,5 +1,5 @@
 {
-  "name": "@ciklum-toggler/sdk",
+  "name": "@ciklum-toggler/angular-sdk",
   "version": "#",
   "peerDependencies": {
     "@angular/common": "^9.0.7",

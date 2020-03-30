@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FeatureToggleModule, FEATURE_TOGGLE_CONFIG_TOKEN, FeatureToggleConfig, FeatureToggleService } from 'sdk';
+import { FeatureToggleModule, FEATURE_TOGGLE_CONFIG_TOKEN, FeatureToggleConfig, FeatureToggleService } from '@ciklum-toggler/angular-sdk';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';

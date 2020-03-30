@@ -16,9 +16,9 @@
       "dom"
     ],
     "paths": {
-      "sdk": [
-        "dist/sdk/sdk",
-        "dist/sdk"
+      "@ciklum-toggler/angular-sdk": [
+        "dist/angular-sdk/sdk",
+        "dist/angular-sdk"
       ]
     },
     "types": ["node", "jest"]

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FeatureToggleService } from 'sdk';
+import { FeatureToggleService } from '@ciklum-toggler/angular-sdk';
 
 @Component({
   selector: 'app-root',
