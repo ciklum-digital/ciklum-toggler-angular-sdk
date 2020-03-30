@@ -1,6 +1,6 @@
 {
   "name": "@ciklum-toggler/angular-sdk",
-  "version": "#",
+  "version": "0.0.0",
   "peerDependencies": {
     "@angular/common": "^9.0.7",
     "@angular/core": "^9.0.7",
