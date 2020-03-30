@@ -10,7 +10,8 @@ addons:
 
 before_install:
   - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
-  - yarn config set registry "https://registry.npmjs.org/:_authToken=${NPM_TOKEN}"
+  - yarn config set @ciklum-toggler:registry "https://registry.npmjs.org"
+  - yarn config set "//registry.npmjs.org/:_authToken" $NPM_TOKEN
 
 install:
   - yarn
@@ -22,6 +23,8 @@ script:
 
 before_deploy:
   - git checkout ${TRAVIS_BRANCH}
+  - yarn config set @ciklum-toggler:registry "https://registry.npmjs.org"
+  - yarn config set "//registry.npmjs.org/:_authToken" $NPM_TOKEN
 
 deploy:
   provider: script
