@@ -1,7 +1,7 @@
 {
   "version": "0.1.3",
   "packages": [
-    "packages/*"
+    "projects/*"
   ],
   "changelog": {
     "repo": "ciklum-digital/ciklum-toggler-angular-sdk",
