@@ -10,7 +10,7 @@ addons:
 
 before_install:
   - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
-#  - yarn config set registry "https://registry.npmjs.org/:_authToken=${NPM_TOKEN}"
+  - yarn config set registry "https://registry.npmjs.org/:_authToken=${NPM_TOKEN}"
 
 install:
   - yarn
@@ -23,9 +23,9 @@ script:
 before_deploy:
   - git checkout ${TRAVIS_BRANCH}
 
-#deploy:
-#  provider: script
-#  script: yarn ci:publish
-#  skip_cleanup: true
-#  on:
-#    branch: master
+deploy:
+  provider: script
+  script: yarn ci:publish
+  skip_cleanup: true
+  on:
+    branch: master
