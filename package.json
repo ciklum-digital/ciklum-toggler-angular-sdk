@@ -18,7 +18,7 @@
     "ci:test": "yarn test",
     "ci:sonar": "npx sonar-scanner",
     "ci:build": "yarn build",
-    "ci:publish": "npx lerna publish"
+    "ci:publish": "npx lerna changed && npx lerna publish"
   },
   "private": true,
   "dependencies": {
