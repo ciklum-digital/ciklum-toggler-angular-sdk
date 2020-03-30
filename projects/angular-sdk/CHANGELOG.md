@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/ciklum-digital/ciklum-toggler-angular-sdk/compare/v0.2.2...v0.3.0) (2020-03-30)
+
+
+### Features
+
+* 🎸 + guards ([0d2e875](https://github.com/ciklum-digital/ciklum-toggler-angular-sdk/commit/0d2e875abfe99753a60202c4bf05d76d531cddc0))
+
+
+
+
+
 ## [0.2.2](https://github.com/ciklum-digital/ciklum-toggler-angular-sdk/compare/v0.2.1...v0.2.2) (2020-03-30)
 
 **Note:** Version bump only for package @ciklum-toggler/angular-sdk
