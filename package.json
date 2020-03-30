@@ -1,5 +1,5 @@
 {
-  "name": "@ciklum-toggler/ciklum-toggler-angular-sdk",
+  "name": "ciklum-toggler-angular-sdk",
   "version": "0.0.0",
   "workspaces": [
     "projects/*"
@@ -20,7 +20,6 @@
     "ci:build": "yarn build",
     "ci:publish": "npx lerna publish"
   },
-  "private": false,
   "dependencies": {
     "@angular/animations": "~9.0.7",
     "@angular/common": "~9.0.7",
