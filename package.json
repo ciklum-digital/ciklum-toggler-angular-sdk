@@ -12,7 +12,7 @@
     "lint": "ng lint sdk",
     "e2e": "ng e2e",
     "ci:lint": "yarn lint",
-    "ci:test": "yarn test | npx coveralls",
+    "ci:test": "yarn test",
     "ci:sonar": "npx sonar-scanner",
     "ci:build": "yarn build",
     "ci:publish": "npx lerna publish"
