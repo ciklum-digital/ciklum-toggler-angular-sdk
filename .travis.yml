@@ -9,7 +9,7 @@ addons:
       secure: $SONAR_TOKEN_CIKLUM
 
 before_install:
-#  - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
+  - git remote set-url origin "https://${GITHUB_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
   - yarn config set @ciklum-toggler:registry "https://registry.npmjs.org"
   - yarn config set "//registry.npmjs.org/:_authToken" $NPM_TOKEN
 
