@@ -20,6 +20,7 @@
     "ci:build": "yarn build",
     "ci:publish": "npx lerna publish"
   },
+  "private": true,
   "dependencies": {
     "@angular/animations": "~9.0.7",
     "@angular/common": "~9.0.7",
