@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.8](https://github.com/ciklum-digital/ciklum-toggler-angular-sdk/compare/v0.3.7...v0.3.8) (2020-04-06)
+
+**Note:** Version bump only for package ciklum-toggler-angular-sdk
+
+
+
+
+
 ## [0.3.7](https://github.com/ciklum-digital/ciklum-toggler-angular-sdk/compare/v0.3.6...v0.3.7) (2020-04-06)
 
 **Note:** Version bump only for package ciklum-toggler-angular-sdk
