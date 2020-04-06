@@ -1,7 +1,6 @@
 /*
  * Public API Surface of angular-sdk
  */
-
 export { FeatureToggleModule } from './modules/feature-toggle/feature-toggle.module';
 export { FeatureToggleService } from './modules/feature-toggle/services/feature-toggle.service';
 export { FEATURE_TOGGLE_CONFIG_TOKEN } from './modules/feature-toggle/feature-toggle-config.token';
