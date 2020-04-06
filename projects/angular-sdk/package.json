@@ -1,12 +1,6 @@
 {
   "name": "@ciklum-toggler/angular-sdk",
   "version": "0.3.7",
-  "directories": {
-    "dist": "dist"
-  },
-  "files": [
-    "dist"
-  ],
   "main": "./dist/bundles/ciklum-toggler-angular-sdk.umd.jsv",
   "module": "./dist/fesm5/ciklum-toggler-angular-sdk.js",
   "es2015": "./dist/fesm2015/ciklum-toggler-angular-sdk.js",

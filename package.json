@@ -20,7 +20,7 @@
     "ci:sonar": "npx sonar-scanner",
     "ci:build": "yarn build",
     "ci:version": "npx lerna version --conventional-commits",
-    "ci:publish": "npx lerna publish --contents dist"
+    "ci:publish": "npx lerna publish"
   },
   "private": true,
   "dependencies": {
