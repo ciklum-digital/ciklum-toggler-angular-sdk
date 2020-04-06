@@ -1,6 +1,6 @@
 {
   "name": "@ciklum-toggler/angular-sdk",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "directories": {
     "dist": "dist"
   },
