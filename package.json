@@ -18,6 +18,7 @@
     "ci:test": "yarn test",
     "ci:sonar": "npx sonar-scanner",
     "ci:build": "yarn build",
+    "ci:version": "lerna version --conventional-commits",
     "ci:publish": "npx lerna publish --contents dist"
   },
   "private": true,
