@@ -1,14 +1,20 @@
 {
   "name": "@ciklum-toggler/angular-sdk",
   "version": "0.3.2",
-  "main": "dist/public-api.js",
-  "typings": "dist/public-api.d.ts",
   "directories": {
     "dist": "dist"
   },
   "files": [
     "dist"
   ],
+  "main": "./dist/bundles/ciklum-toggler-angular-sdk.umd.jsv",
+  "module": "./dist/fesm5/ciklum-toggler-angular-sdk.js",
+  "es2015": "./dist/fesm2015/ciklum-toggler-angular-sdk.js",
+  "esm5": "./dist/esm5/ciklum-toggler-angular-sdk.js",
+  "esm2015": "./dist/esm2015/ciklum-toggler-angular-sdk.js",
+  "fesm5": "./dist/fesm5/ciklum-toggler-angular-sdk.js",
+  "fesm2015": "./dist/fesm2015/ciklum-toggler-angular-sdk.js",
+  "typings": "./dist/public-api.d.ts",
   "peerDependencies": {
     "@angular/common": "^9.0.7",
     "@angular/core": "^9.0.7",
