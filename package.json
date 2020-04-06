@@ -14,6 +14,7 @@
     "test:sandbox": "ng test sandbox",
     "lint": "ng lint angular-sdk",
     "e2e": "ng e2e",
+    "postversion": "yarn ci:build",
     "ci:lint": "yarn lint",
     "ci:test": "yarn test",
     "ci:sonar": "npx sonar-scanner",
