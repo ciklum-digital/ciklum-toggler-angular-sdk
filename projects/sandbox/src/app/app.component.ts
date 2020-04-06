@@ -7,7 +7,7 @@ import { FeatureToggleService } from '@ciklum-toggler/angular-sdk';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  public readonly featureToggleName = 'FF_FT_32_POPUP_BUTTON';
+  public readonly featureToggleName = 'FF_FT_19_SET_PASSWORD';
   title = 'sandbox';
   constructor(private featureToggleService: FeatureToggleService) {
 
