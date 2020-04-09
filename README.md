@@ -1,27 +1,129 @@
-# CiklumToggler
+# @ciklum-toggler/angular-sdk
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
+@ciklum-toggler/angular-sdk is easy way to integrate your angular application with ciklum toggler feature flags provider 
 
-## Development server
+## Getting started
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+* Run `npm i -S @ciklum-toggler/angular-sdk` or `yarn add @ciklum-toggler/angular-sdk` to install module as dependency
+* Import components from module to your app.module (root)
+```
+import {
+     FeatureToggleModule,
+     FEATURE_TOGGLE_CONFIG_TOKEN,
+     FeatureToggleConfig,
+   } from '@ciklum-toggler/angular-sdk';
+```
+* Configure module settings
+    * add module to imports in the @NgModule
+    * add value for `toggleUrl` -  path to your instance of **Ciklum Toggler** and api endpoint mostly it's `/api/external-systems-access`
+    * add value for `envKey` - sdk token for your environment
+```
+imports: [
+    ...
+    FeatureToggleModule.forRoot({
+      provide: FEATURE_TOGGLE_CONFIG_TOKEN,
+      useFactory: (): FeatureToggleConfig => ({
+        toggleUrl: '${path-to-your-instance}/api/external-systems-access',
+        envKey: 'unique-env-sdk-key',
+      })
+    })
+    ...
+  ],
+```
 
-## Code scaffolding
+## Usage
+### Directives
+*Example*
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
 
-## Build
+<h2 *featureToggle="featureToggleName">FF is enabled</h2>
+<h2 *featureToggleWhenDisabled="featureToggleName">FF when disabled</h2>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```
 
-## Running unit tests
+### Service
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+*Example*
 
-## Running end-to-end tests
+Inject service to providers in your module.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+@NgModule({
+  declarations: [
+  ...
+  providers: [FeatureToggleService],
+  ...
+})
+```
+Import service where you are going to use it
 
-## Further help
+```
+import { FeatureToggleService } from '@ciklum-toggler/angular-sdk';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+
+Usage service in your code
+
+```
+export class MyComponent implements OnInit {
+  public readonly featureToggleName = 'FEATURE_NAME';
+  constructor(private featureToggleService: FeatureToggleService) {
+
+  }
+  ngOnInit(): void {
+    this.featureToggleService.isEnabled(this.featureToggleName)
+      .subscribe((isEnabled) => {
+        ...your implementation here...
+      });
+  }
+}
+
+```
+
+### CanActivateGuard
+
+* provide data with feature name to you route
+* add FeatureGuard to you route
+
+```
+const moduleRoutes: Routes = [
+    {
+        path: RUTER_PATH,
+        component: 'MyComponent',
+        data: {
+            feature: string, //-ff name
+        },
+        canActivate: [FeatureGuard]
+    }
+]
+```
+
+### CanLoadGuard
+
+* provide data with feature name to you route
+* add FeatureLoadGuard to you route
+
+```
+const moduleRoutes: Routes = [
+    {
+        path: RUTER_PATH,
+        component: 'MyComponent',
+        data: {
+            feature: string, //-ff name
+        },
+        canLoad: [FeatureLoadGuard]
+    }
+]
+```
+
+## API
+
+* Directives
+    * featureToggle - render layout when feature is enabled
+    * featureToggleWhenDisabled - render layout when feature is disabled
+* Service
+    * FeatureToggleService.isEnabled - check if feature is enabled and return Observable<boolean>, unsubscription isn't needed
+* Guards
+    * CanActivateGuard - `FeatureGuard`
+    * CanLoadGuard - `FeatureLoadGuard`

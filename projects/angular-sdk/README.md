@@ -1,24 +1,129 @@
-# angular-sdk
+# @ciklum-toggler/angular-sdk
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
+@ciklum-toggler/angular-sdk is easy way to integrate your angular application with ciklum toggler feature flags provider 
 
-## Code scaffolding
+## Getting started
 
-Run `ng generate component component-name --project angular-sdk` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project angular-sdk`.
-> Note: Don't forget to add `--project angular-sdk` or else it will be added to the default project in your `angular.json` file. 
+* Run `npm i -S @ciklum-toggler/angular-sdk` or `yarn add @ciklum-toggler/angular-sdk` to install module as dependency
+* Import components from module to your app.module (root)
+```
+import {
+     FeatureToggleModule,
+     FEATURE_TOGGLE_CONFIG_TOKEN,
+     FeatureToggleConfig,
+   } from '@ciklum-toggler/angular-sdk';
+```
+* Configure module settings
+    * add module to imports in the @NgModule
+    * add value for `toggleUrl` -  path to your instance of **Ciklum Toggler** and api endpoint mostly it's `/api/external-systems-access`
+    * add value for `envKey` - sdk token for your environment
+```
+imports: [
+    ...
+    FeatureToggleModule.forRoot({
+      provide: FEATURE_TOGGLE_CONFIG_TOKEN,
+      useFactory: (): FeatureToggleConfig => ({
+        toggleUrl: '${path-to-your-instance}/api/external-systems-access',
+        envKey: 'unique-env-sdk-key',
+      })
+    })
+    ...
+  ],
+```
 
-## Build
+## Usage
+### Directives
+*Example*
 
-Run `ng build angular-sdk` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
 
-## Publishing
+<h2 *featureToggle="featureToggleName">FF is enabled</h2>
+<h2 *featureToggleWhenDisabled="featureToggleName">FF when disabled</h2>
 
-After building your library with `ng build angular-sdk`, go to the dist folder `cd dist/angular-sdk` and run `npm publish`.
+```
 
-## Running unit tests
+### Service
 
-Run `ng test angular-sdk` to execute the unit tests via [Karma](https://karma-runner.github.io).
+*Example*
 
-## Further help
+Inject service to providers in your module.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+```
+@NgModule({
+  declarations: [
+  ...
+  providers: [FeatureToggleService],
+  ...
+})
+```
+Import service where you are going to use it
+
+```
+import { FeatureToggleService } from '@ciklum-toggler/angular-sdk';
+
+```
+
+Usage service in your code
+
+```
+export class MyComponent implements OnInit {
+  public readonly featureToggleName = 'FEATURE_NAME';
+  constructor(private featureToggleService: FeatureToggleService) {
+
+  }
+  ngOnInit(): void {
+    this.featureToggleService.isEnabled(this.featureToggleName)
+      .subscribe((isEnabled) => {
+        ...your implementation here...
+      });
+  }
+}
+
+```
+
+### CanActivateGuard
+
+* provide data with feature name to you route
+* add FeatureGuard to you route
+
+```
+const moduleRoutes: Routes = [
+    {
+        path: RUTER_PATH,
+        component: 'MyComponent',
+        data: {
+            feature: string, //-ff name
+        },
+        canActivate: [FeatureGuard]
+    }
+]
+```
+
+### CanLoadGuard
+
+* provide data with feature name to you route
+* add FeatureLoadGuard to you route
+
+```
+const moduleRoutes: Routes = [
+    {
+        path: RUTER_PATH,
+        component: 'MyComponent',
+        data: {
+            feature: string, //-ff name
+        },
+        canLoad: [FeatureLoadGuard]
+    }
+]
+```
+
+## API
+
+* Directives
+    * featureToggle - render layout when feature is enabled
+    * featureToggleWhenDisabled - render layout when feature is disabled
+* Service
+    * FeatureToggleService.isEnabled - check if feature is enabled and return Observable<boolean>, unsubscription isn't needed
+* Guards
+    * CanActivateGuard - `FeatureGuard`
+    * CanLoadGuard - `FeatureLoadGuard`

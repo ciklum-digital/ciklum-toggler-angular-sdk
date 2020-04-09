@@ -17,7 +17,7 @@
     ],
     "paths": {
       "@ciklum-toggler/angular-sdk": [
-        "dist/angular-sdk/sdk",
+        "projects/angular-sdk/dist",
         "dist/angular-sdk"
       ]
     },
