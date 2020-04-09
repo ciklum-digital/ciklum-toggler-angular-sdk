@@ -46,16 +46,6 @@ imports: [
 
 *Example*
 
-Inject service to providers in your module.
-
-```
-@NgModule({
-  declarations: [
-  ...
-  providers: [FeatureToggleService],
-  ...
-})
-```
 Import service where you are going to use it
 
 ```
@@ -87,6 +77,8 @@ export class MyComponent implements OnInit {
 * add FeatureGuard to you route
 
 ```
+import { FeatureGuard } from '@ciklum-toggler/angular-sdk'; 
+
 const moduleRoutes: Routes = [
     {
         path: RUTER_PATH,
@@ -105,6 +97,8 @@ const moduleRoutes: Routes = [
 * add FeatureLoadGuard to you route
 
 ```
+import { FeatureGuard } from '@ciklum-toggler/angular-sdk'; 
+
 const moduleRoutes: Routes = [
     {
         path: RUTER_PATH,
