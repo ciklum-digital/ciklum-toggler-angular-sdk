@@ -138,18 +138,6 @@
               "**/node_modules/**"
             ]
           }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "projects/sandbox/e2e/protractor.conf.js",
-            "devServerTarget": "sandbox:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "sandbox:serve:production"
-            }
-          }
         }
       }
     }},

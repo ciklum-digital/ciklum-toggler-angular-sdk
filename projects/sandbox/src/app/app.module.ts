@@ -1,33 +1,36 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {
-  FeatureToggleModule,
-  FEATURE_TOGGLE_CONFIG_TOKEN,
-  FeatureToggleConfig,
-  FeatureToggleService,
-} from '@ciklum-toggler/angular-sdk';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
+import { InMemoryDataService } from './shared/services/in-memory-data.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { DashboardComponent } from './modules/dashboard/dashboard.component';
+import { HeroDetailComponent } from './modules/hero-detail/hero-detail.component';
+import { HeroesComponent } from './modules/heroes/heroes.component';
+import { HeroSearchComponent } from './modules/hero-search/hero-search.component';
+import { MessagesComponent } from './shared/modules/messages/messages.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    FeatureToggleModule.forRoot({
-      provide: FEATURE_TOGGLE_CONFIG_TOKEN,
-      useFactory: (): FeatureToggleConfig => ({
-        toggleUrl: 'http://svc.feature-toggle.pp.ciklum.com/api/external-systems-access',
-        envKey: '43fa7131747d84bec609d2c90f024878cbc7356f6b9c13fa',
-      })
-    })
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
-  providers: [FeatureToggleService],
-  bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    DashboardComponent,
+    HeroesComponent,
+    HeroDetailComponent,
+    MessagesComponent,
+    HeroSearchComponent
+  ],
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }

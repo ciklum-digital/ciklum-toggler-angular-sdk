@@ -8,5 +8,7 @@ if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+/*
+ * Launch an application by bootstrapping its root module.
+ */
+platformBrowserDynamic().bootstrapModule(AppModule);
