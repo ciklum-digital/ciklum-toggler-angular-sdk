@@ -19,7 +19,20 @@
       "@ciklum-toggler/angular-sdk": [
         "projects/angular-sdk/dist",
         "dist/angular-sdk"
-      ]
+      ],
+        "~app/*": [
+          "projects/sandbox/src/app/*"
+        ],
+        "~env/*": [
+          "projects/sandbox/src/environments/*"
+        ],
+        "~shared/*": [
+          "projects/sandbox/src/app/shared/*"
+        ],
+        "~core/*": [
+          "projects/sandbox/src/app/core/*"
+        ]
+
     },
     "types": ["node", "jest"]
   },

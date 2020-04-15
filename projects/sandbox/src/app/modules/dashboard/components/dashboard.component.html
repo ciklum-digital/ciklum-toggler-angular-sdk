@@ -1,4 +1,5 @@
 <h3>Top Heroes</h3>
+<app-hero-search *featureToggle="topSearchFeature"></app-hero-search>
 <div class="grid grid-pad">
   <a *ngFor="let hero of heroes" class="col-1-4"
       routerLink="/detail/{{hero.id}}">
@@ -8,4 +9,4 @@
   </a>
 </div>
 
-<app-hero-search></app-hero-search>
+<app-hero-search *featureToggleWhenDisabled="topSearchFeature"></app-hero-search>
