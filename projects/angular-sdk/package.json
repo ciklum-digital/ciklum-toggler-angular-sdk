@@ -22,5 +22,12 @@
     "directory": "dist"
   },
   "license": "Apache-2.0",
+  "description": "SDK for ciklum toggler",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ciklum-digital/ciklum-toggler-angular-sdk.git"
+  },
+  "author": "Ciklum digital",
+  "homepage": "https://github.com/ciklum-digital/ciklum-toggler-angular-sdk#readme",
   "gitHead": "19466daf7e4b9922704e6347caaa90ce78632e62"
 }
